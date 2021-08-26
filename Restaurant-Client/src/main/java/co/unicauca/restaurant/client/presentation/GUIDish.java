@@ -37,10 +37,19 @@ public class GUIDish extends javax.swing.JInternalFrame {
      */
     public GUIDish() {
         initComponents();
-
-        setSize(870, 500);
+        
+        setSize(670, 300);
         fijarMensajeExplicacion();
         btnAgregar.setVisible(false);
+        
+        lblNombre.setVisible(false);
+        txtName.setVisible(false);
+        jLabel1.setVisible(false);
+        txtDescription.setVisible(false);
+        jLabel2.setVisible(false);
+        txtPrice.setVisible(false);
+        jLabel3.setVisible(false);
+        txtSize.setVisible(false);
     }
 
     /**
@@ -79,29 +88,36 @@ public class GUIDish extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setMaximizable(true);
-        setResizable(true);
-        setTitle("Consulta de Clientes");
+        setTitle("Consulta Platos");
 
         pnlCentro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlCentro.setLayout(new java.awt.GridLayout(4, 2));
 
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblNombre.setText("*Nombre:");
+        lblNombre.setText("Nombre:");
+        lblNombre.setPreferredSize(new java.awt.Dimension(30, 16));
         pnlCentro.add(lblNombre);
+
+        txtName.setToolTipText("");
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
         pnlCentro.add(txtName);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("*Descripcion:");
+        jLabel1.setText("Descripcion:");
         pnlCentro.add(jLabel1);
         pnlCentro.add(txtDescription);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("*Precio:");
+        jLabel2.setText("Precio:");
         pnlCentro.add(jLabel2);
         pnlCentro.add(txtPrice);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("*Tamaño(ALL, HALF):");
+        jLabel3.setText("Tamaño(ALL, HALF):");
         pnlCentro.add(jLabel3);
         pnlCentro.add(txtSize);
 
@@ -109,7 +125,6 @@ public class GUIDish extends javax.swing.JInternalFrame {
 
         pnlSur.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/agregar.png"))); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +133,6 @@ public class GUIDish extends javax.swing.JInternalFrame {
         });
         pnlSur.add(btnAgregar);
 
-        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cerrar.png"))); // NOI18N
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +160,6 @@ public class GUIDish extends javax.swing.JInternalFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         pnlNorte.add(txtId, gridBagConstraints);
 
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/buscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,9 +184,21 @@ public class GUIDish extends javax.swing.JInternalFrame {
         return txtId.getText();
     }
 
+    private void mostrarbotones(){
+        lblNombre.setVisible(true);
+        txtName.setVisible(true);
+        jLabel1.setVisible(true);
+        txtDescription.setVisible(true);
+        jLabel2.setVisible(true);
+        txtPrice.setVisible(true);
+        jLabel3.setVisible(true);
+        txtSize.setVisible(true);
+    }
+    
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String id = txtId.getText().trim();
-
+        mostrarbotones();
+        
         IDishAccess service = Factory.getInstance().getDishService();
         // Inyecta la dependencia
         DishService dishService = new DishService(service);
@@ -221,6 +246,10 @@ public class GUIDish extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
     /**
      * Muestra los datos en el formulario
      *
