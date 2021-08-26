@@ -40,16 +40,8 @@ public class GUIDish extends javax.swing.JInternalFrame {
         
         setSize(670, 300);
         fijarMensajeExplicacion();
-        btnAgregar.setVisible(false);
+        ocultarbotones();
         
-        lblNombre.setVisible(false);
-        txtName.setVisible(false);
-        jLabel1.setVisible(false);
-        txtDescription.setVisible(false);
-        jLabel2.setVisible(false);
-        txtPrice.setVisible(false);
-        jLabel3.setVisible(false);
-        txtSize.setVisible(false);
     }
 
     /**
@@ -183,7 +175,17 @@ public class GUIDish extends javax.swing.JInternalFrame {
     public String getTxtyId() {
         return txtId.getText();
     }
-
+    
+    private void ocultarbotones(){
+        lblNombre.setVisible(false);
+        txtName.setVisible(false);
+        jLabel1.setVisible(false);
+        txtDescription.setVisible(false);
+        jLabel2.setVisible(false);
+        txtPrice.setVisible(false);
+        jLabel3.setVisible(false);
+        txtSize.setVisible(false);
+    }
     private void mostrarbotones(){
         lblNombre.setVisible(true);
         txtName.setVisible(true);
@@ -239,6 +241,7 @@ public class GUIDish extends javax.swing.JInternalFrame {
             clearControls();
             txtId.setText("");
             btnAgregar.setVisible(false);
+            ocultarbotones();
 
         } catch (Exception ex) {
             successMessage(ex.getMessage(), "Atención");

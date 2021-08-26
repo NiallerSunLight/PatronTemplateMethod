@@ -34,6 +34,9 @@ public class GUIMenu extends javax.swing.JFrame {
         jMenuItemSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PLATOS");
+
+        jDesktopPane1.setToolTipText("");
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -45,6 +48,8 @@ public class GUIMenu extends javax.swing.JFrame {
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 279, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setToolTipText("");
 
         jMenu1.setText("Opciones");
 
